@@ -91,7 +91,7 @@ window.plausible=window.plausible||function(){(window.plausible.q=window.plausib
           <address>
             <strong>Webseed OÜ</strong><br>
             <span class="legal-fill">[Straße und Hausnummer einfügen]</span><br>
-            <span class="legal-fill">[74682]</span> Pudisoo Küla<br>
+            <span class="legal-fill">[Postleitzahl]</span> Tallinn<br>
             Estland (Republic of Estonia)
           </address>
           <p>Vertretungsberechtigter Geschäftsführer: <strong>Hendrik Hohnrath</strong></p>
@@ -258,6 +258,16 @@ window.plausible=window.plausible||function(){(window.plausible.q=window.plausib
     </div>
   </div>
 </footer>
+
+<script>
+  (function(){
+    const nav = document.querySelector('.nav');
+    if (!nav) return;
+    const update = () => nav.classList.toggle('is-scrolled', window.scrollY > 20);
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+  })();
+</script>
 
 </body>
 </html>
