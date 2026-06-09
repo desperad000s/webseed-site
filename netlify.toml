@@ -24,5 +24,17 @@
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains"
 
+# Block search engines from indexing staging / branch deploys / deploy previews.
+# Production (webseed.me) is unaffected — Netlify only applies these in non-prod contexts.
+[context.branch-deploy.headers]
+  for = "/*"
+  [context.branch-deploy.headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[context.deploy-preview.headers]
+  for = "/*"
+  [context.deploy-preview.headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
 # Form submissions on /contact — Netlify Forms auto-detects, no extra config needed.
 # To enable: add `data-netlify="true"` to the <form> in contact.html.
