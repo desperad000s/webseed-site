@@ -1,1 +1,1 @@
-Triggers Netlify staging build. Safe to ignore.
+rev 3 — public repo, verified author
