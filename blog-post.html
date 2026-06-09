@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Prerender internal links on hover → instant navigation on click -->
+<script type="speculationrules">{"prerender":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
+<link rel="preload" href="assets/fonts/geist-subset.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/bricolage-grotesque-subset.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="tokens.css?v=swap">
+<link rel="stylesheet" href="post.css?v=swap">
+
+<title>Why launch isn't the finish line · webseed</title>
+<meta name="description" content="Most agencies treat the site like a deliverable and disappear at handover. The retainer is the part where numbers actually compound.">
+<meta name="author" content="Hendrik · webseed">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0D140A">
+<link rel="canonical" href="https://webseed.me/blog/why-launch-isnt-the-finish-line">
+<link rel="icon" href="assets/logo/favicon.svg">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://webseed.me/blog/why-launch-isnt-the-finish-line">
+<meta property="og:site_name" content="webseed">
+<meta property="og:title" content="Why launch isn't the finish line">
+<meta property="og:description" content="Most agencies treat the site like a deliverable and disappear at handover. The retainer is the part where numbers actually compound.">
+<meta property="og:image" content="https://webseed.me/assets/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="article:author" content="Hendrik">
+<meta property="article:published_time" content="2026-01-15">
+<meta property="article:section" content="Growth · Retainer">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Why launch isn't the finish line · webseed">
+<meta name="twitter:description" content="Most agencies treat the site like a deliverable and disappear at handover. The retainer is where numbers actually compound.">
+<meta name="twitter:image" content="https://webseed.me/assets/og-default.png">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Why launch isn't the finish line","description":"Most agencies treat the site like a deliverable and disappear at handover. The retainer is the part where numbers actually compound.","author":{"@type":"Person","name":"Hendrik","url":"https://webseed.me/#about"},"publisher":{"@type":"Organization","name":"webseed","logo":{"@type":"ImageObject","url":"https://webseed.me/assets/logo/mark-lime.svg"}},"datePublished":"2026-01-15","url":"https://webseed.me/blog/why-launch-isnt-the-finish-line","image":"https://webseed.me/assets/og-default.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://webseed.me/blog/why-launch-isnt-the-finish-line"}}
+</script>
+
+<!-- Plausible (self-hosted, proxied through Netlify → same-origin, no CORS, no extra connection) -->
+<script defer data-domain="webseed.me" data-api="/api/event" src="/js/plausible.js"></script>
+<script>
+window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)};
+document.addEventListener('click',function(e){var a=e.target.closest('[data-event]');if(!a)return;var p={};for(var k in a.dataset){if(k!=='event'&&k.indexOf('event')===0)p[k.slice(5).toLowerCase()]=a.dataset[k]}plausible(a.dataset.event,Object.keys(p).length?{props:p}:undefined)},true);
+</script>
+<!-- GA4 + Cookie-Script lazy-loaded on first interaction or idle (mobile Perf optimization — keeps main thread clear during paint) -->
+<script>
+(function(){var L=false;function load(){if(L)return;L=true;
+var c=document.createElement('script');c.async=true;c.type='text/javascript';c.charset='UTF-8';c.src='https://cdn.cookie-script.com/s/d5e08260c92e5cd7e40840f57d44a79f.js';document.head.appendChild(c);
+var g=document.createElement('script');g.async=true;g.src='https://www.googletagmanager.com/gtag/js?id=G-66NNRJC733';document.head.appendChild(g);
+window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','G-66NNRJC733');}
+['scroll','click','keydown','mousemove','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true,capture:true})});
+setTimeout(load,8000)
+})();
+</script>
+
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute;" aria-hidden="true">
+  <defs>
+    <symbol id="brand-mark" viewBox="0 0 48 37.7"><path fill="#88CB1E" d="M40.5,20.6c0-1.8-.4-3.4-1.5-4.9-.3-.4-.6-.7-1-1-3.4-3.2-2.2-8.6,2.1-10.2,2.6-1,5.6,0,7.2,2.5,1.5,2.3,1.2,5.4-.7,7.4-.5.5-1.1,1-1.5,1.6-1.3,1.9-1.5,3.9-1.2,6.1.3,1.8,1,3.2,2.4,4.4,1.8,1.6,2.4,3.7,1.8,6-.6,2.3-2.2,3.8-4.5,4.4-3.4.8-6.7-1.4-7.3-4.9-.5-2.9-2.3-4.7-4.9-5.6-1.7-.6-3.4-.7-5.1,0-1.2.4-2.5.5-3.7,0-1.9-.7-3.8-.5-5.6.4-1.8.8-3.2,2-4.1,3.7-.3.6-.5,1.2-.6,1.8-.6,2.6-2.8,4.5-5.4,4.7-2.8.2-5.3-1.4-6.2-3.9-1-2.6,0-5.5,2.2-7.1,1.4-1,2-2.4,2.1-4,.2-2.2-.3-4.2-1.5-6-.3-.5-.8-.9-1.2-1.3C-1.4,11.6-.3,6.1,3.9,4.5c2.7-1,5.7,0,7.2,2.4,1.6,2.5,1.3,5.7-.9,7.6-1.8,1.6-2.5,3.5-2.7,5.7-.1,1-.2,2.1,0,3.1,0,.4.2.8.4,1.1.3.7.9,1.1,1.7,1.1,3.3,0,5.9-1.4,7.7-4.2.4-.6.6-1.3.7-2,.7-3,3.2-5,6.2-4.9,2.6,0,5,1.9,5.6,4.4.5,2.1,1.6,3.7,3.1,5,1,1,2.2,1.8,3.7,2.1,1.1.2,2.1-.2,2.7-1.2.8-1.3,1.1-2.7,1.1-4.2Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 16 16" fill="currentColor"><path d="M12.175 9H0V7H12.175L6.575 1.4L8 0L16 8L8 16L6.575 14.6L12.175 9Z"/></symbol>
+  </defs>
+</svg>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="index.html"><svg><use href="#brand-mark"/></svg><span>webseed</span></a>
+    <div class="nav__links">
+      <a href="index.html#approach">Approach</a>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#models">Engagement</a>
+      <a href="index.html#about">About</a>
+      <a href="blog.html" class="is-active">Blog</a>
+    </div>
+    <a class="nav__cta" data-event="Start Project" data-event-location="Nav" href="contact.html">Start a project <svg><use href="#i-arrow"/></svg></a>
+  </div>
+</nav>
+<main>
+
+<header class="article-head">
+  <div class="bg-grid"></div>
+  <div class="article-head__container container">
+    <p class="breadcrumb"><a href="blog.html">Blog</a> <svg><use href="#i-arrow"/></svg> Growth · Retainer</p>
+    <p class="eyebrow"><span class="bar"></span>essay · growth · retainer · 8 min read</p>
+    <h1>Why <em>launch isn't</em> the finish line.</h1>
+    <p class="article-deck">Most agencies treat the site like a deliverable and disappear at handover. The retainer is the part where numbers actually compound — and the only part most agencies skip.</p>
+    <div class="article-meta">
+      <div class="article-meta__avatar"></div>
+      <div>
+        <div class="article-meta__author">Hendrik · founder, webseed</div>
+        <span class="article-meta__role">written january 2026</span>
+      </div>
+      <span class="article-meta__dot">·</span>
+      <span class="article-meta__item">8 min read</span>
+      <span class="article-meta__dot">·</span>
+      <span class="article-meta__item">3 examples</span>
+    </div>
+  </div>
+</header>
+
+<div class="article-cover">
+  <div class="article-cover__frame">
+    <span class="article-cover__label">field note · essay</span>
+  </div>
+</div>
+
+<article class="article">
+  <div class="container--read">
+    <div class="article-body">
+      <p class="lead">A typical agency engagement looks like this: discovery, design, build, launch, handover, invoice, goodbye. The team that learned your business in week one walks out the door in week ten, and the site they built starts decaying the moment they leave.</p>
+
+      <p>This is the design of most agencies. It's not a flaw — it's a feature of the project-based business model. You shipped something, you got paid, next account. The agency wins. The client gets a beautiful site that converts the same as the old one because nobody is watching the numbers.</p>
+
+      <p>We built webseed to refuse this design. Launch is the start of the work, not the end of it.</p>
+
+      <h2>What actually happens after launch</h2>
+
+      <p>The strategy doc said your bounce rate should drop from 78% to under 50%. Six weeks after launch, it's at 71%. What now? In the project-based model, that's a re-engagement opportunity (read: another invoice). In the retainer model, that's Tuesday.</p>
+
+      <p>Here's what the retainer actually does in a typical month, drawn from <a href="#">our elumico engagement</a>:</p>
+
+      <ul>
+        <li><strong>Week 1:</strong> Funnel review. Where did traffic drop in the last 30 days? Which pages lost conversion? One hypothesis to test.</li>
+        <li><strong>Week 2:</strong> Ship the test. A/B variant, headline rewrite, layout adjustment, pricing-page tweak — whatever the hypothesis demanded.</li>
+        <li><strong>Week 3:</strong> Editorial calendar execution. SEO content ships, LinkedIn cadence runs, email sequence reviews.</li>
+        <li><strong>Week 4:</strong> Read the test result. Either promote the winner to the live site, or learn from the failure and pick the next test.</li>
+      </ul>
+
+      <p>None of this happens in a project engagement. Not because the team can't do it — they can — but because they're not under contract to do it. The model doesn't pay for it.</p>
+
+      <blockquote>"They didn't just build the site. They built the whole digital side of the company." — Anna Mueller, founder of elumico, after year four on the retainer.</blockquote>
+
+      <h2>The numbers that compound</h2>
+
+      <p>This isn't theoretical. On the elumico retainer (lighting brand, B2B, 2021–present), here's what actually moved:</p>
+
+      <div class="article-stat">
+        <div class="article-stat__item"><span class="v">2×</span><span class="l">bookings in Q1 after launch</span></div>
+        <div class="article-stat__item"><span class="v">+47%</span><span class="l">organic traffic in year 2</span></div>
+        <div class="article-stat__item"><span class="v">4 yrs</span><span class="l">on the retainer · 0 disputes</span></div>
+        <div class="article-stat__item"><span class="v">€0</span><span class="l">spent on paid acquisition</span></div>
+      </div>
+
+      <p>The bookings jump came from the launch itself — strategy + identity + build all in alignment. But the +47% organic in year two? That came from the retainer. Editorial calendar, internal linking strategy, schema markup that wasn't urgent at launch but was urgent by month eight.</p>
+
+      <p>If we'd handed over the site and walked away, year two would have looked like year one: organic flat, channels disconnected, the email list growing but never converting. The compounding only happens because someone is still paying attention.</p>
+
+      <div class="callout">
+        <p><strong>Field note · how we sell the retainer</strong></p>
+        <p>We don't sell the retainer separately. It's the default engagement. If you only need a project, we'll say so on the qualifying call — but we tell clients up front that the project-only model leaves money on the table, and we won't pretend otherwise to close the deal.</p>
+      </div>
+
+      <h2>What the retainer is not</h2>
+
+      <p>One concern we hear: "isn't the retainer just a maintenance contract dressed up?" No.</p>
+
+      <p>A maintenance contract is reactive: something breaks, you fix it. Plugin update, security patch, broken form. Important, but not what we do. Our retainer is <strong>proactive</strong>: testing hypotheses, shipping content, reading numbers, iterating. The site at month twelve is materially different from the site at launch — different copy, different layout, different funnel architecture.</p>
+
+      <p>The other concern: "is the agency just billing me indefinitely?" That's a real risk, and it's why we structure the retainer with quarterly KPI reviews. If the numbers aren't moving, the retainer ends. We've ended one — <a href="#">we wrote about it</a> — and we'll end another the moment the work stops compounding.</p>
+
+      <h2>How to spot the difference when you're hiring</h2>
+
+      <p>If you're evaluating agencies for a project that includes ongoing work, ask three questions:</p>
+
+      <ol>
+        <li><strong>Who reads the analytics?</strong> If the answer is "we'll set them up for you," that's project work. If it's "the same person who designed the site reads the analytics and decides what to test next," that's a retainer team.</li>
+        <li><strong>What does month six look like?</strong> A project-based agency will struggle to answer this. A retainer team will describe their process in detail because they're already doing it for someone else.</li>
+        <li><strong>How do you decide when to end the contract?</strong> If they don't have a clean answer, run.</li>
+      </ol>
+
+      <p>Launch isn't the finish line because the finish line is moving. The market changes, your customers change, your offer changes. The work of staying aligned with that change is the work. Anyone who walks away after handover wasn't aligned in the first place.</p>
+
+      <div class="author-bio">
+        <div class="author-bio__avatar"></div>
+        <div>
+          <h3 class="author-bio__name">Hendrik</h3>
+          <p class="author-bio__role">founder · webseed</p>
+          <p class="author-bio__text">Designer since age 13. International business &amp; marketing degree. IT sales &amp; consulting apprenticeship. Webflow since 2017. Lead designer at elumico since 2018. Founded webseed in 2023 to run the whole digital loop in one head.</p>
+          <a class="author-bio__link" href="index.html#about">Read the full background <svg><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<section class="related">
+  <div class="bg-grid"></div>
+  <div class="container related__container">
+    <div class="related__header">
+      <h2 class="related__title">Keep reading.</h2>
+      <a class="related__see-all" href="blog.html">All essays <svg><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="related__grid">
+      <a class="related__card" href="blog-post.html">
+        <p class="related__card-meta">essay · 11 min · strategy</p>
+        <h3 class="related__card-title">What a strategy doc actually contains.</h3>
+        <p class="related__card-excerpt">Most strategy decks are 40-slide vibe docs. Ours is one page. Positioning, audience, KPI targets, channel mix.</p>
+        <span class="related__card-read">Read <svg><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="related__card" href="blog-post.html">
+        <p class="related__card-meta">case study · 14 min · retainer</p>
+        <h3 class="related__card-title">elumico, year four: what compounded.</h3>
+        <p class="related__card-excerpt">Four years on the retainer. Exactly what we ran, what failed, and what kept compounding into year four.</p>
+        <span class="related__card-read">Read <svg><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="related__card" href="blog-post.html">
+        <p class="related__card-meta">essay · 7 min · growth</p>
+        <h3 class="related__card-title">A/B testing without a research team.</h3>
+        <p class="related__card-excerpt">You don't need 100k visitors a month to test. The lean methodology we use on accounts with 4k monthly visits.</p>
+        <span class="related__card-read">Read <svg><use href="#i-arrow"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="footer__row">
+      <div class="footer__brand">
+        <a class="nav__brand" href="index.html"><svg><use href="#brand-mark"/></svg><span>webseed</span></a>
+        <p>The holistic digital studio. Strategy, identity, build &amp; growth — in one head. Working online, everywhere.</p>
+      </div>
+      <div class="footer__col">
+        <p class="footer__label">Studio</p>
+        <ul>
+          <li><a href="index.html#approach">Approach</a></li>
+          <li><a href="index.html#work">Work</a></li>
+          <li><a href="index.html#models">Engagement</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <p class="footer__label">Contact</p>
+        <ul>
+          <li><a data-event="Email Click" data-event-location="Footer" href="mailto:hello@webseed.me">hello@webseed.me</a></li>
+          <li><a data-event="Book Call" data-event-location="Footer" href="https://cal.com/webseed-hohnrath" target="_blank" rel="noopener">Book a call</a></li>
+          <li><a href="contact.html">Contact form</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <p class="footer__label">Legal</p>
+        <ul>
+          <li><a href="impressum.html">Imprint</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>© webseed 2026 · Webseed OÜ</span>
+      <span>Built with care. Calibrated for your goals.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    const nav = document.querySelector('.nav');
+    const update = () => nav.classList.toggle('is-scrolled', window.scrollY > 20);
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+  })();
+</script>
+
+</body>
+</html>

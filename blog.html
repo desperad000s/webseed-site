@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Prerender internal links on hover → instant navigation on click -->
+<script type="speculationrules">{"prerender":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
+<link rel="preload" href="assets/fonts/geist-subset.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/bricolage-grotesque-subset.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="tokens.css?v=swap">
+<link rel="stylesheet" href="blog.css?v=swap">
+
+<title>webseed — blog · field notes from the studio</title>
+<meta name="description" content="Essays and field notes from running the four-phase loop. Monthly. No fluff, no SEO bait. Written by Hendrik.">
+<meta name="author" content="Hendrik · webseed">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0D140A">
+<link rel="canonical" href="https://webseed.me/blog">
+<link rel="icon" href="assets/logo/favicon.svg">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://webseed.me/blog">
+<meta property="og:site_name" content="webseed">
+<meta property="og:title" content="webseed — blog · field notes from the studio">
+<meta property="og:description" content="Essays and field notes from running the four-phase loop. Monthly. No fluff, no SEO bait.">
+<meta property="og:image" content="https://webseed.me/assets/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="webseed — blog · field notes from the studio">
+<meta name="twitter:description" content="Essays and field notes from running the four-phase loop. Monthly. No fluff, no SEO bait.">
+<meta name="twitter:image" content="https://webseed.me/assets/og-default.png">
+
+<!-- Plausible (self-hosted, proxied through Netlify → same-origin, no CORS, no extra connection) -->
+<script defer data-domain="webseed.me" data-api="/api/event" src="/js/plausible.js"></script>
+<script>
+window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)};
+document.addEventListener('click',function(e){var a=e.target.closest('[data-event]');if(!a)return;var p={};for(var k in a.dataset){if(k!=='event'&&k.indexOf('event')===0)p[k.slice(5).toLowerCase()]=a.dataset[k]}plausible(a.dataset.event,Object.keys(p).length?{props:p}:undefined)},true);
+</script>
+<!-- GA4 + Cookie-Script lazy-loaded on first interaction or idle (mobile Perf optimization — keeps main thread clear during paint) -->
+<script>
+(function(){var L=false;function load(){if(L)return;L=true;
+var c=document.createElement('script');c.async=true;c.type='text/javascript';c.charset='UTF-8';c.src='https://cdn.cookie-script.com/s/d5e08260c92e5cd7e40840f57d44a79f.js';document.head.appendChild(c);
+var g=document.createElement('script');g.async=true;g.src='https://www.googletagmanager.com/gtag/js?id=G-66NNRJC733';document.head.appendChild(g);
+window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','G-66NNRJC733');}
+['scroll','click','keydown','mousemove','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true,capture:true})});
+setTimeout(load,8000)
+})();
+</script>
+
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute;" aria-hidden="true">
+  <defs>
+    <symbol id="brand-mark" viewBox="0 0 48 37.7"><path fill="#88CB1E" d="M40.5,20.6c0-1.8-.4-3.4-1.5-4.9-.3-.4-.6-.7-1-1-3.4-3.2-2.2-8.6,2.1-10.2,2.6-1,5.6,0,7.2,2.5,1.5,2.3,1.2,5.4-.7,7.4-.5.5-1.1,1-1.5,1.6-1.3,1.9-1.5,3.9-1.2,6.1.3,1.8,1,3.2,2.4,4.4,1.8,1.6,2.4,3.7,1.8,6-.6,2.3-2.2,3.8-4.5,4.4-3.4.8-6.7-1.4-7.3-4.9-.5-2.9-2.3-4.7-4.9-5.6-1.7-.6-3.4-.7-5.1,0-1.2.4-2.5.5-3.7,0-1.9-.7-3.8-.5-5.6.4-1.8.8-3.2,2-4.1,3.7-.3.6-.5,1.2-.6,1.8-.6,2.6-2.8,4.5-5.4,4.7-2.8.2-5.3-1.4-6.2-3.9-1-2.6,0-5.5,2.2-7.1,1.4-1,2-2.4,2.1-4,.2-2.2-.3-4.2-1.5-6-.3-.5-.8-.9-1.2-1.3C-1.4,11.6-.3,6.1,3.9,4.5c2.7-1,5.7,0,7.2,2.4,1.6,2.5,1.3,5.7-.9,7.6-1.8,1.6-2.5,3.5-2.7,5.7-.1,1-.2,2.1,0,3.1,0,.4.2.8.4,1.1.3.7.9,1.1,1.7,1.1,3.3,0,5.9-1.4,7.7-4.2.4-.6.6-1.3.7-2,.7-3,3.2-5,6.2-4.9,2.6,0,5,1.9,5.6,4.4.5,2.1,1.6,3.7,3.1,5,1,1,2.2,1.8,3.7,2.1,1.1.2,2.1-.2,2.7-1.2.8-1.3,1.1-2.7,1.1-4.2Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 16 16" fill="currentColor"><path d="M12.175 9H0V7H12.175L6.575 1.4L8 0L16 8L8 16L6.575 14.6L12.175 9Z"/></symbol>
+  </defs>
+</svg>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="index.html"><svg><use href="#brand-mark"/></svg><span>webseed</span></a>
+    <div class="nav__links">
+      <a href="index.html#approach">Approach</a>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#models">Engagement</a>
+      <a href="index.html#about">About</a>
+      <a href="blog.html" class="is-active">Blog</a>
+    </div>
+    <a class="nav__cta" data-event="Start Project" data-event-location="Nav" href="contact.html">Start a project <svg><use href="#i-arrow"/></svg></a>
+  </div>
+</nav>
+<main>
+
+<section class="hero">
+  <div class="bg-grid"></div>
+  <div class="container hero__container">
+    <div class="hero__head">
+      <p class="eyebrow"><span class="bar"></span>field notes · pov · how the work gets made</p>
+      <h1 class="h-mega">Notes from the studio. <em>Sharpened</em> on real work.</h1>
+      <p class="lede">Essays, opinions, and post-mortems from running the four-phase loop. No SEO bait, no top-ten lists. Only the things we keep telling new clients on the first call — written down, so you can read them before that call.</p>
+      <div class="hero__meta">
+        <span>12 essays</span>
+        <span>new posts monthly</span>
+        <span>written by Hendrik</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section__bg-grid"></div>
+  <div class="container section__container">
+    <div class="filters">
+      <button class="filter is-active">All</button>
+      <button class="filter">Strategy</button>
+      <button class="filter">Build</button>
+      <button class="filter">Growth</button>
+      <button class="filter">Retainer</button>
+      <button class="filter">Case studies</button>
+    </div>
+
+    <!-- Featured -->
+    <a class="featured" href="blog-post.html">
+      <div class="featured__cover">
+        <span class="featured__cover-label">featured · jan 2026</span>
+      </div>
+      <div class="featured__copy">
+        <p class="featured__meta">essay · 8 min read · growth · retainer</p>
+        <h2 class="featured__title">Why launch isn't the finish line.</h2>
+        <p class="featured__excerpt">Most agencies treat the site like a deliverable and disappear at handover. The retainer is the part where numbers actually compound — and the only part most agencies skip. Here's what we do differently, and what compounded for elumico over four years.</p>
+        <span class="featured__read">Read the essay <svg><use href="#i-arrow"/></svg></span>
+      </div>
+    </a>
+
+    <!-- Posts grid -->
+    <div class="posts">
+      <a class="post" href="blog-post.html" style="--accent: radial-gradient(ellipse 60% 60% at 30% 70%, rgba(136,203,30,0.18), transparent 70%);">
+        <div class="post__cover">
+          <span class="post__cover-tag">strategy</span>
+        </div>
+        <p class="post__meta">essay · 11 min · feb 2026</p>
+        <h3 class="post__title">What a strategy doc actually contains.</h3>
+        <p class="post__excerpt">Most strategy decks are 40-slide vibe docs. Ours is one page. Positioning, audience, KPI targets, channel mix, conversion architecture. Here's the structure, with redacted examples.</p>
+        <span class="post__read">Read <svg><use href="#i-arrow"/></svg></span>
+      </a>
+
+      <a class="post" href="blog-post.html" style="--accent: radial-gradient(ellipse 60% 60% at 70% 30%, rgba(136,203,30,0.14), transparent 70%);">
+        <div class="post__cover">
+          <span class="post__cover-tag">build</span>
+        </div>
+        <p class="post__meta">essay · 6 min · mar 2026</p>
+        <h3 class="post__title">Webflow or Next.js — which and why.</h3>
+        <p class="post__excerpt">Two tools, two right-fits. Webflow when content frequency and editorial control matter. Next.js when the site is the product. The rule of thumb, in one paragraph.</p>
+        <span class="post__read">Read <svg><use href="#i-arrow"/></svg></span>
+      </a>
+
+      <a class="post" href="blog-post.html" style="--accent: radial-gradient(ellipse 70% 60% at 50% 80%, rgba(136,203,30,0.20), transparent 70%);">
+        <div class="post__cover">
+          <span class="post__cover-tag">retainer</span>
+        </div>
+        <p class="post__meta">case study · 14 min · apr 2026</p>
+        <h3 class="post__title">elumico, year four: what compounded.</h3>
+        <p class="post__excerpt">Four years on the retainer. 2× bookings in Q1 after launch, +47% organic traffic in year two. Here's exactly what we ran, what failed, and what kept compounding.</p>
+        <span class="post__read">Read <svg><use href="#i-arrow"/></svg></span>
+      </a>
+
+      <a class="post" href="blog-post.html" style="--accent: radial-gradient(ellipse 60% 60% at 20% 30%, rgba(136,203,30,0.16), transparent 70%);">
+        <div class="post__cover">
+          <span class="post__cover-tag">growth</span>
+        </div>
+        <p class="post__meta">essay · 7 min · may 2026</p>
+        <h3 class="post__title">A/B testing without a research team.</h3>
+        <p class="post__excerpt">You don't need 100k visitors a month to test. Here's the lean methodology we use on accounts with 4k monthly visits — and the three tests that always run first.</p>
+        <span class="post__read">Read <svg><use href="#i-arrow"/></svg></span>
+      </a>
+
+      <a class="post" href="blog-post.html" style="--accent: radial-gradient(ellipse 60% 60% at 80% 60%, rgba(136,203,30,0.12), transparent 70%);">
+        <div class="post__cover">
+          <span class="post__cover-tag">build</span>
+        </div>
+        <p class="post__meta">essay · 9 min · jun 2026</p>
+        <h3 class="post__title">Analytics before launch, not after.</h3>
+        <p class="post__excerpt">Most teams wire analytics weeks after the site is live. That's how you lose your day-one data forever. Here's the lightweight setup we ship before the launch checklist starts.</p>
+        <span class="post__read">Read <svg><use href="#i-arrow"/></svg></span>
+      </a>
+
+      <a class="post" href="blog-post.html" style="--accent: radial-gradient(ellipse 70% 60% at 40% 70%, rgba(136,203,30,0.18), transparent 70%);">
+        <div class="post__cover">
+          <span class="post__cover-tag">strategy</span>
+        </div>
+        <p class="post__meta">essay · 12 min · jul 2026</p>
+        <h3 class="post__title">The first retainer we ended early.</h3>
+        <p class="post__excerpt">It wasn't a fit. We saw it in month two and pulled the cord in month four. What we got wrong in qualifying, what the exit looked like, and how it sharpened the qualifying questions.</p>
+        <span class="post__read">Read <svg><use href="#i-arrow"/></svg></span>
+      </a>
+
+      <a class="post" href="blog-post.html" style="--accent: radial-gradient(ellipse 60% 60% at 60% 40%, rgba(136,203,30,0.14), transparent 70%);">
+        <div class="post__cover">
+          <span class="post__cover-tag">growth</span>
+        </div>
+        <p class="post__meta">essay · 8 min · aug 2026</p>
+        <h3 class="post__title">Why we don't run paid ads (for most clients).</h3>
+        <p class="post__excerpt">Ads work, but most B2B clients aren't ready for them. Here's the diagnostic we run before recommending paid traffic — and why content/SEO usually wins on payback period.</p>
+        <span class="post__read">Read <svg><use href="#i-arrow"/></svg></span>
+      </a>
+
+      <a class="post" href="blog-post.html" style="--accent: radial-gradient(ellipse 60% 60% at 35% 50%, rgba(136,203,30,0.16), transparent 70%);">
+        <div class="post__cover">
+          <span class="post__cover-tag">case</span>
+        </div>
+        <p class="post__meta">case study · 6 min · sep 2026</p>
+        <h3 class="post__title">Mary: identity, then site, then channel.</h3>
+        <p class="post__excerpt">A B2C wellness brand built in 12 weeks. The identity system shipped before the site, the site shipped before paid acquisition. Why the order matters.</p>
+        <span class="post__read">Read <svg><use href="#i-arrow"/></svg></span>
+      </a>
+
+      <a class="post" href="blog-post.html" style="--accent: radial-gradient(ellipse 60% 60% at 50% 40%, rgba(136,203,30,0.18), transparent 70%);">
+        <div class="post__cover">
+          <span class="post__cover-tag">retainer</span>
+        </div>
+        <p class="post__meta">essay · 5 min · oct 2026</p>
+        <h3 class="post__title">Quarterly KPI reviews that actually move things.</h3>
+        <p class="post__excerpt">Most reviews are status meetings. Ours is one page, three numbers, and a hypothesis for what we'll test next. Template included.</p>
+        <span class="post__read">Read <svg><use href="#i-arrow"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter">
+  <div class="section__bg-grid"></div>
+  <div class="container newsletter__container">
+    <p class="eyebrow"><span class="bar"></span>the newsletter</p>
+    <h2 class="h-section">One essay. <em>Monthly.</em> No fluff.</h2>
+    <p class="lede" style="text-align:center;margin: 0 auto;">When we publish a new note, it lands in your inbox first. No promotions, no SEO content. Just the essay.</p>
+    <form class="newsletter__form" onsubmit="event.preventDefault(); if(window.plausible){plausible('Newsletter Subscribe')} if(window.gtag){gtag('event','newsletter_subscribe')} this.querySelector('input').value=''; this.querySelector('button').textContent='Subscribed ✓';">
+      <input type="email" placeholder="you@yourcompany.com" required>
+      <button type="submit">Subscribe</button>
+    </form>
+    <p class="newsletter__note">no marketing list · unsubscribe in one click</p>
+  </div>
+</section>
+
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="footer__row">
+      <div class="footer__brand">
+        <a class="nav__brand" href="index.html"><svg><use href="#brand-mark"/></svg><span>webseed</span></a>
+        <p>The holistic digital studio. Strategy, identity, build &amp; growth — in one head. Working online, everywhere.</p>
+      </div>
+      <div class="footer__col">
+        <p class="footer__label">Studio</p>
+        <ul>
+          <li><a href="index.html#approach">Approach</a></li>
+          <li><a href="index.html#work">Work</a></li>
+          <li><a href="index.html#models">Engagement</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <p class="footer__label">Contact</p>
+        <ul>
+          <li><a data-event="Email Click" data-event-location="Footer" href="mailto:hello@webseed.me">hello@webseed.me</a></li>
+          <li><a data-event="Book Call" data-event-location="Footer" href="https://cal.com/webseed-hohnrath" target="_blank" rel="noopener">Book a call</a></li>
+          <li><a href="contact.html">Contact form</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <p class="footer__label">Legal</p>
+        <ul>
+          <li><a href="impressum.html">Imprint</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>© webseed 2026 · Webseed OÜ</span>
+      <span>Built with care. Calibrated for your goals.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll
+  (function(){
+    const nav = document.querySelector('.nav');
+    const update = () => nav.classList.toggle('is-scrolled', window.scrollY > 20);
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+  })();
+  // Filter toggle (visual only)
+  document.querySelectorAll('.filter').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('.filter').forEach(x => x.classList.remove('is-active'));
+    b.classList.add('is-active');
+  }));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Prerender internal links on hover → instant navigation on click -->
+<script type="speculationrules">{"prerender":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
+<!-- Prerender internal links on hover → instant navigation on click -->
+
+<link rel="preload" href="assets/fonts/geist-subset.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/bricolage-grotesque-subset.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="tokens.css?v=swap">
+<link rel="stylesheet" href="index.css?v=swap">
+
+<title>webseed — the holistic digital studio</title>
+<meta name="description" content="The holistic digital studio. Strategy, identity, build, and growth — in one head. Run by Hendrik. Two retainer spots open for 2026.">
+<meta name="author" content="Hendrik · webseed">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0D140A">
+<link rel="canonical" href="https://webseed.me/">
+<link rel="icon" href="assets/logo/favicon.svg">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://webseed.me/">
+<meta property="og:site_name" content="webseed">
+<meta property="og:title" content="webseed — the holistic digital studio">
+<meta property="og:description" content="Strategy, identity, build, and growth — in one head. Run by Hendrik.">
+<meta property="og:image" content="https://webseed.me/assets/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="webseed — the holistic digital studio">
+<meta name="twitter:description" content="Strategy, identity, build, and growth — in one head. Run by Hendrik.">
+<meta name="twitter:image" content="https://webseed.me/assets/og-default.png">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"webseed","legalName":"Webseed OÜ","url":"https://webseed.me","logo":"https://webseed.me/assets/logo/mark-lime.svg","description":"The holistic digital studio. Strategy, identity, build, and growth — in one head.","founder":{"@type":"Person","name":"Hendrik Hohnrath"},"foundingDate":"2023","email":"hello@webseed.me"}
+</script>
+
+<!-- Plausible (self-hosted, proxied through Netlify → same-origin, no CORS, no extra connection) -->
+<script defer data-domain="webseed.me" data-api="/api/event" src="/js/plausible.js"></script>
+<script>
+window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)};
+document.addEventListener('click',function(e){var a=e.target.closest('[data-event]');if(!a)return;var p={};for(var k in a.dataset){if(k!=='event'&&k.indexOf('event')===0)p[k.slice(5).toLowerCase()]=a.dataset[k]}plausible(a.dataset.event,Object.keys(p).length?{props:p}:undefined)},true);
+</script>
+<!-- GA4 + Cookie-Script lazy-loaded on first interaction or idle (mobile Perf optimization — keeps main thread clear during paint) -->
+<script>
+(function(){var L=false;function load(){if(L)return;L=true;
+var c=document.createElement('script');c.async=true;c.type='text/javascript';c.charset='UTF-8';c.src='https://cdn.cookie-script.com/s/d5e08260c92e5cd7e40840f57d44a79f.js';document.head.appendChild(c);
+var g=document.createElement('script');g.async=true;g.src='https://www.googletagmanager.com/gtag/js?id=G-66NNRJC733';document.head.appendChild(g);
+window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','G-66NNRJC733');}
+['scroll','click','keydown','mousemove','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true,capture:true})});
+setTimeout(load,8000)
+})();
+</script>
+
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute;" aria-hidden="true">
+  <defs>
+    <symbol id="brand-mark" viewBox="0 0 48 37.7"><path fill="#88CB1E" d="M40.5,20.6c0-1.8-.4-3.4-1.5-4.9-.3-.4-.6-.7-1-1-3.4-3.2-2.2-8.6,2.1-10.2,2.6-1,5.6,0,7.2,2.5,1.5,2.3,1.2,5.4-.7,7.4-.5.5-1.1,1-1.5,1.6-1.3,1.9-1.5,3.9-1.2,6.1.3,1.8,1,3.2,2.4,4.4,1.8,1.6,2.4,3.7,1.8,6-.6,2.3-2.2,3.8-4.5,4.4-3.4.8-6.7-1.4-7.3-4.9-.5-2.9-2.3-4.7-4.9-5.6-1.7-.6-3.4-.7-5.1,0-1.2.4-2.5.5-3.7,0-1.9-.7-3.8-.5-5.6.4-1.8.8-3.2,2-4.1,3.7-.3.6-.5,1.2-.6,1.8-.6,2.6-2.8,4.5-5.4,4.7-2.8.2-5.3-1.4-6.2-3.9-1-2.6,0-5.5,2.2-7.1,1.4-1,2-2.4,2.1-4,.2-2.2-.3-4.2-1.5-6-.3-.5-.8-.9-1.2-1.3C-1.4,11.6-.3,6.1,3.9,4.5c2.7-1,5.7,0,7.2,2.4,1.6,2.5,1.3,5.7-.9,7.6-1.8,1.6-2.5,3.5-2.7,5.7-.1,1-.2,2.1,0,3.1,0,.4.2.8.4,1.1.3.7.9,1.1,1.7,1.1,3.3,0,5.9-1.4,7.7-4.2.4-.6.6-1.3.7-2,.7-3,3.2-5,6.2-4.9,2.6,0,5,1.9,5.6,4.4.5,2.1,1.6,3.7,3.1,5,1,1,2.2,1.8,3.7,2.1,1.1.2,2.1-.2,2.7-1.2.8-1.3,1.1-2.7,1.1-4.2Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 16 16" fill="currentColor"><path d="M12.175 9H0V7H12.175L6.575 1.4L8 0L16 8L8 16L6.575 14.6L12.175 9Z"/></symbol>
+    <symbol id="i-close" viewBox="0 0 23 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21.5 1L11.5 11L21.5 21"/><path d="M1.5 1L11.5 11L1.5 21"/></symbol>
+    <symbol id="i-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,8 6,12 14,4"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  </defs>
+</svg>
+
+<!-- ─── NAV (slim) ─── -->
+<nav class="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="#"><svg><use href="#brand-mark"/></svg><span>webseed</span></a>
+    <div class="nav__links">
+      <a href="#approach">Approach</a>
+      <a href="#work">Work</a>
+      <a href="#models">Engagement</a>
+      <a href="#about">About</a>
+      <a href="blog.html">Blog</a>
+    </div>
+    <a class="nav__cta" data-event="Start Project" data-event-location="Nav" href="contact.html">Start a project <svg><use href="#i-arrow"/></svg></a>
+  </div>
+</nav>
+<main>
+
+<!-- ═════════ 1 · HERO ═════════ -->
+<section class="hero" id="top" data-screen-label="01 Hero">
+  <div class="bg-grid"></div>
+  <div class="container hero__container">
+    <div class="hero__pretitle">
+      <span class="dot"></span>
+      <span class="eyebrow">holistic digital studio · online · est. 2023</span>
+    </div>
+    <h1 class="hero__h">We build the <em class="hero__rotate"><span class="hero__rotate-word is-active">digital systems</span><span class="hero__rotate-word">growth engines</span><span class="hero__rotate-word">brand machines</span></em> that move your numbers, not just the websites.</h1>
+    <p class="hero__lede">The holistic digital studio. Strategy, identity, build, and the retainer where channels feed each other and the numbers actually compound. All under one roof.</p>
+    <div class="hero__actions">
+      <a class="btn btn-primary" data-event="Start Project" data-event-location="Hero" href="contact.html">Start a project <svg><use href="#i-arrow"/></svg></a>
+      <a class="link-ghost" href="#approach">See the approach <svg><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="hero__proof">
+      <div class="stat"><div class="v">4 yrs</div><div class="l">avg retainer length</div></div>
+      <div class="stat"><div class="v">2×</div><div class="l">bookings · elumico Q1</div></div>
+      <div class="stat"><div class="v">+47%</div><div class="l">organic traffic · year 2</div></div>
+      <div class="stat"><div class="v">0</div><div class="l">retainers ended early</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ 2 · APPROACH (with pills) ═════════ -->
+<section class="section approach" id="approach" data-screen-label="02 Approach">
+  <div class="section__bg-grid"></div>
+  <div class="container">
+    <div class="approach__head">
+      <p class="eyebrow"><span class="bar"></span>the holistic approach</p>
+      <h2 class="h-section">Four phases. <em>One</em> feedback loop. Yours.</h2>
+      <p class="lede">Most agencies stop at handover. We don't. Every phase below feeds the next one — and the last one feeds the first one back. Hover any pill to read the phase.</p>
+    </div>
+    <div class="stage" data-stage>
+      <canvas></canvas>
+      <div class="pill-wrap p1"><div class="pill-drift"><div class="pill c-strategy" data-pill><div class="pill__header"><div class="pill__toggle"><svg class="ico-open"><use href="#i-arrow"/></svg><svg class="ico-close"><use href="#i-close"/></svg></div><h2 class="pill__title">Strategy</h2></div><div class="pill__body"><p class="pill__role">phase 01 · the spine</p><p class="pill__text">Discovery, audience, KPIs, brand pillars. The strategy doc is the contract every channel answers back to.</p><a class="pill__cta">Read the phase <svg><use href="#i-arrow"/></svg></a></div></div></div></div>
+      <div class="pill-wrap p2"><div class="pill-drift"><div class="pill c-identity" data-pill><div class="pill__header"><div class="pill__toggle"><svg class="ico-open"><use href="#i-arrow"/></svg><svg class="ico-close"><use href="#i-close"/></svg></div><h2 class="pill__title">Identity</h2></div><div class="pill__body"><p class="pill__role">phase 02 · the system</p><p class="pill__text">Mark, type, color, voice, motion. Operational, not decorative. Calibrated to the strategy doc.</p><a class="pill__cta">Read the phase <svg><use href="#i-arrow"/></svg></a></div></div></div></div>
+      <div class="pill-wrap p3"><div class="pill-drift"><div class="pill c-build" data-pill><div class="pill__header"><div class="pill__toggle"><svg class="ico-open"><use href="#i-arrow"/></svg><svg class="ico-close"><use href="#i-close"/></svg></div><h2 class="pill__title">Build</h2></div><div class="pill__body"><p class="pill__role">phase 03 · the funnel</p><p class="pill__text">Webflow or Next.js, whichever the project needs. Analytics wired before launch. The site is the funnel.</p><a class="pill__cta">Read the phase <svg><use href="#i-arrow"/></svg></a></div></div></div></div>
+      <div class="pill-wrap p4"><div class="pill-drift"><div class="pill c-growth" data-pill><div class="pill__header"><div class="pill__toggle"><svg class="ico-open"><use href="#i-arrow"/></svg><svg class="ico-close"><use href="#i-close"/></svg></div><h2 class="pill__title">Growth</h2></div><div class="pill__body"><p class="pill__role">phase 04 · the loop</p><p class="pill__text">SEO, content, email, socials, ads, A/B testing. The retainer where channels feed each other and numbers compound.</p><a class="pill__cta">Read the phase <svg><use href="#i-arrow"/></svg></a></div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ 3 · DIFFERENT ═════════ -->
+<section class="section different" data-screen-label="03 Why Different">
+  <div class="section__bg-grid"></div>
+  <div class="container container--narrow">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow"><span class="bar"></span>why this is different</p>
+        <h2 class="h-section" style="margin-top:1.4rem;">Beautiful sites are everywhere. <em>Systems that compound</em> aren't.</h2>
+      </div>
+      <p class="lede">Most agencies are organized around a single deliverable. We're organized around the long term. The difference is in what happens after launch — and what gets decided before design even starts.</p>
+    </div>
+
+    <div class="different__grid">
+      <div class="different__col them">
+        <p class="lbl">most agencies</p>
+        <h3>Pretty deliverables.<br>Then disappear.</h3>
+        <div class="different__col__divider"></div>
+        <ul>
+          <li>Skip strategy, go straight to moodboards</li>
+          <li>Hand off a "beautiful" site, then disappear</li>
+          <li>Designer hands to developer hands to nobody</li>
+          <li>Analytics wired weeks after launch — if at all</li>
+          <li>"Marketing" sold separately by a different vendor</li>
+          <li>You explain your business three times to three teams</li>
+        </ul>
+      </div>
+      <div class="different__col us">
+        <p class="lbl">what webseed does</p>
+        <h3>Systems that compound.<br>Numbers that move.</h3>
+        <div class="different__col__divider"></div>
+        <ul>
+          <li>Strategy doc first — every decision answers back to it</li>
+          <li>Stay on the retainer until the numbers move and stay moved</li>
+          <li>One head from discovery to A/B test — no handoffs</li>
+          <li>Analytics &amp; SEO baseline wired before launch day</li>
+          <li>Content, channels, email, ads in the same studio</li>
+          <li>You explain it once. We answer back in the strategy doc.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ 4 · WORK ═════════ -->
+<section class="section work" id="work" data-screen-label="04 Work">
+  <div class="section__bg-grid"></div>
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow"><span class="bar"></span>proof · selected case study</p>
+        <h2 class="h-section" style="margin-top:1.4rem;">Run the loop <em>for years</em>. The numbers compound.</h2>
+      </div>
+      <p class="lede">We don't take many clients. Each one is on the retainer for the long term. Here's what that produces.</p>
+    </div>
+
+    <div class="case__spotlight">
+      <div class="browser-mock">
+        <div class="browser-mock__chrome">
+          <div class="browser-mock__dots"><span></span><span></span><span></span></div>
+          <div class="browser-mock__url">elumico.de/anwendungen/tennis</div>
+        </div>
+        <div class="browser-mock__body">
+          <div class="browser-mock__nav">
+            <span class="browser-mock__logo">elum<em>i</em>co</span>
+            <div class="browser-mock__links">
+              <span class="browser-mock__link"></span>
+              <span class="browser-mock__link"></span>
+              <span class="browser-mock__link"></span>
+              <span class="browser-mock__cta" data-amp-trigger>Kontakt</span>
+            </div>
+          </div>
+          <div class="browser-mock__hero">
+            <h3 class="browser-mock__h">Professionelles LED-Flutlicht für Tennisplätze</h3>
+            <p class="browser-mock__sub">Energieeffiziente LED-Flutlichtanlagen verlängern den Spielspaß bis in die Dunkelheit — von Frühling bis Spätherbst.</p>
+            <span class="browser-mock__btn" data-amp-trigger>Flutlichtanlage anfragen</span>
+          </div>
+        </div>
+      </div>
+      <div class="case__copy">
+        <h3 class="h-section" style="font-size:clamp(2.2rem,3vw,3rem);margin:0;">elumico. <em>The whole machine.</em></h3>
+        <p class="body">A German lighting firm on the retainer since 2021. Started with a strategy doc and a site rebuild. Now we run the LinkedIn cadence, the email lifecycle, the showroom showcase, the SEO program, and the monthly analytics review.</p>
+        <p class="case__quote">"They didn't just build the site. They built the whole digital side of the company."<span class="source">Anna Mueller · founder, elumico</span></p>
+        <div class="case__bigstats" data-stats>
+          <div class="case__bigstat" data-stat="bookings"><span class="v" data-base="2×" data-amp="480×">2×</span><span class="l">bookings · Q1 after launch</span></div>
+          <div class="case__bigstat" data-stat="organic"><span class="v" data-base="+47%" data-amp="+1240%">+47%</span><span class="l">organic traffic · year 2</span></div>
+          <div class="case__bigstat" data-stat="retainer"><span class="v" data-base="4 yrs" data-amp="15 yrs">4 yrs</span><span class="l">on retainer · 0 disputes</span></div>
+          <div class="case__bigstat" data-stat="ended"><span class="v" data-base="0" data-amp="0">0</span><span class="l">retainers ended early · ever</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="work__more">
+      <a class="btn btn-primary" data-event="Case Study" href="#">Read the full case study <svg><use href="#i-arrow"/></svg></a>
+      <a class="link-ghost" data-event="See More Work" href="#">See more work <svg><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ 5 · ENGAGEMENT MODELS ═════════ -->
+<section class="section models" id="models" data-screen-label="05 Engagement">
+  <div class="section__bg-grid"></div>
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow"><span class="bar"></span>three ways to work with webseed</p>
+        <h2 class="h-section" style="margin-top:1.4rem;">Built for partnership. <em>Open</em> to project work.</h2>
+      </div>
+      <p class="lede">The holistic retainer is where webseed is at its best — that's where strategy, identity, build and growth compound into each other. If you only need a single deliverable, the other two models do that cleanly too.</p>
+    </div>
+
+    <div class="models__cards">
+      <article class="model-card recommended" onclick="location.href='contact.html'">
+        <span class="model__ribbon">recommended</span>
+        <p class="model__label">full partnership</p>
+        <h3 class="model__title">The holistic retainer.</h3>
+        <p class="model__desc">Strategy, identity, site, content, channels, analytics. All in one head. We grow the business with you — not just hand over a deliverable.</p>
+        <div class="model__divider"></div>
+        <ul class="model__features">
+          <li><svg><use href="#i-check"/></svg><span>Strategy + identity + build included</span></li>
+          <li><svg><use href="#i-check"/></svg><span>Monthly content, SEO, channel cadence</span></li>
+          <li><svg><use href="#i-check"/></svg><span>A/B testing &amp; copy iteration post-launch</span></li>
+          <li><svg><use href="#i-check"/></svg><span>Quarterly KPI reviews</span></li>
+          <li><svg><use href="#i-check"/></svg><span>Direct line to Hendrik · no handoffs</span></li>
+        </ul>
+        <div class="model__divider"></div>
+        <p class="model__price">from €4,800 / month<span class="meta">12-month minimum · then month-to-month</span></p>
+        <a class="model__cta" data-event="Engagement Model" data-event-model="Retainer" href="contact.html">Talk through your loop <svg><use href="#i-arrow"/></svg></a>
+      </article>
+
+      <article class="model-card" onclick="location.href='contact.html'">
+        <p class="model__label">single deliverable</p>
+        <h3 class="model__title">The project.</h3>
+        <p class="model__desc">Strategy + identity + build. We ship the site and instrument the analytics. You take the wheel from there.</p>
+        <div class="model__divider"></div>
+        <ul class="model__features">
+          <li><svg><use href="#i-check"/></svg><span>Strategy lite · 1-week discovery</span></li>
+          <li><svg><use href="#i-check"/></svg><span>Identity system + brand assets</span></li>
+          <li><svg><use href="#i-check"/></svg><span>Webflow / Next.js build · 6–10 weeks</span></li>
+          <li><svg><use href="#i-check"/></svg><span>Analytics + SEO baseline at launch</span></li>
+          <li><svg><use href="#i-check"/></svg><span>30-day post-launch support</span></li>
+        </ul>
+        <div class="model__divider"></div>
+        <p class="model__price">from €18,000<span class="meta">scoped per project · one-pager proposal</span></p>
+        <a class="model__cta" data-event="Engagement Model" data-event-model="Project" href="contact.html">Scope a project <svg><use href="#i-arrow"/></svg></a>
+      </article>
+
+      <article class="model-card" onclick="location.href='contact.html'">
+        <p class="model__label">audit &amp; advise</p>
+        <h3 class="model__title">The consult.</h3>
+        <p class="model__desc">Site audit, strategy review, channel diagnosis. When you've got an internal team and need a second head, not another agency.</p>
+        <div class="model__divider"></div>
+        <ul class="model__features">
+          <li><svg><use href="#i-check"/></svg><span>Full site &amp; funnel audit</span></li>
+          <li><svg><use href="#i-check"/></svg><span>Channel strategy &amp; KPI review</span></li>
+          <li><svg><use href="#i-check"/></svg><span>Brand &amp; positioning workshops</span></li>
+          <li><svg><use href="#i-check"/></svg><span>Written report + 90-min review call</span></li>
+          <li><svg><use href="#i-check"/></svg><span>2-week turnaround</span></li>
+        </ul>
+        <div class="model__divider"></div>
+        <p class="model__price">€2,400<span class="meta">one-time · paid up front</span></p>
+        <a class="model__cta" data-event="Engagement Model" data-event-model="Consult" href="contact.html">Book a consult <svg><use href="#i-arrow"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ 6 · ABOUT TEASER ═════════ -->
+<section class="section about" id="about" data-screen-label="06 About">
+  <div class="section__bg-grid"></div>
+  <div class="container container--narrow">
+    <div class="about__grid">
+      <div class="about__portrait">
+        <span class="corner-tag">founder · since 2003</span>
+        <picture>
+          <source type="image/webp" srcset="assets/hendrik-portrait-400.webp 400w, assets/hendrik-portrait.webp 578w, assets/hendrik-portrait-800.webp 800w" sizes="(max-width: 880px) 80vw, 36rem">
+          <img src="assets/hendrik-portrait.png" alt="Hendrik · founder of webseed" width="578" height="684" loading="lazy" decoding="async" />
+        </picture>
+      </div>
+      <div class="about__copy">
+        <p class="eyebrow"><span class="bar"></span>one head behind webseed</p>
+        <h2 class="h-section" style="font-size:clamp(2.2rem,3.4vw,3.4rem);">Hendrik. <em>One head</em>, the whole loop.</h2>
+        <p>Design at <strong>eight</strong> in my dad's print shop. Paid client work at <strong>thirteen</strong> on spraylogos.de. Business &amp; marketing degree. IT sales &amp; consulting apprenticeship. Webflow since 2017. Lead designer at elumico since 2018. webseed since 2023.</p>
+        <p>The breadth is exactly why strategy, identity, build and growth stay aligned. <strong>No handoffs.</strong> No re-explaining the business to a new team every six weeks.</p>
+        <div class="about__stat-row">
+          <div class="about__stat"><div class="v">25 yrs</div><div class="l">design + media</div></div>
+          <div class="about__stat"><div class="v">8 yrs</div><div class="l">with elumico</div></div>
+          <div class="about__stat"><div class="v">1</div><div class="l">head · 0 handoffs</div></div>
+        </div>
+        <a class="about__cta" href="#">Read the full background <svg><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ 7 · CLOSING CTA ═════════ -->
+<section class="closing" id="contact" data-screen-label="07 Contact">
+  <div class="bg-grid-dark"></div>
+  <div class="container">
+    <div class="closing__grid">
+      <div class="closing__heading">
+        <p class="eyebrow"><span class="bar" style="background:#213205;"></span>let's build the machine</p>
+        <h2 class="h-mega" style="margin-top:2rem;">Ready to treat your website like the <em>front door</em> it actually is?</h2>
+      </div>
+      <div class="closing__right">
+        <p>Tell us what's going on. One reply within a business day. We'll be honest about whether the partnership model is the right call — or if a project or consult fits better.</p>
+        <div class="closing__btn-row">
+          <a class="btn-dark" data-event="Start Project" data-event-location="Closing" href="contact.html">
+            <svg><use href="#i-mail"/></svg>
+            Start the conversation
+          </a>
+          <a class="btn-ghost-dark" data-event="Book Call" data-event-location="Closing" href="contact.html">
+            Book a 30-min call
+            <svg><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+        <div class="closing__meta">
+          <span class="dot"></span>
+          <span>2 retainer spots · 2026</span>
+          <span class="sep">·</span>
+          <span>hello@webseed.me</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ FOOTER ═════════ -->
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="footer__row">
+      <div class="footer__brand">
+        <a class="nav__brand" href="#"><svg><use href="#brand-mark"/></svg><span>webseed</span></a>
+        <p>The holistic digital studio. Strategy, identity, build &amp; growth — in one head. Working online, everywhere.</p>
+      </div>
+      <div class="footer__col">
+        <p class="footer__label">Studio</p>
+        <ul>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#models">Engagement</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <p class="footer__label">Contact</p>
+        <ul>
+          <li><a data-event="Email Click" data-event-location="Footer" href="mailto:hello@webseed.me">hello@webseed.me</a></li>
+          <li><a data-event="Book Call" data-event-location="Footer" href="https://cal.com/webseed-hohnrath" target="_blank" rel="noopener">Book a call</a></li>
+          <li><a href="contact.html">Contact form</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <p class="footer__label">Legal</p>
+        <ul>
+          <li><a href="impressum.html">Imprint</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>© webseed 2026 · Webseed OÜ</span>
+      <span>Built with care. Calibrated for your goals.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Nav: add .is-scrolled when page scrolls past threshold */
+(function() {
+  const nav = document.querySelector('.nav');
+  if (!nav) return;
+  const update = () => nav.classList.toggle('is-scrolled', window.scrollY > 20);
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+})();
+
+/* Hero word rotator */
+(function() {
+  const words = document.querySelectorAll('.hero__rotate-word');
+  if (words.length < 2) return;
+  let i = 0;
+  setInterval(() => {
+    words[i].classList.remove('is-active');
+    i = (i + 1) % words.length;
+    words[i].classList.add('is-active');
+  }, 2600);
+})();
+
+/* Stat amp — click "Kontakt" / "Flutlichtanlage anfragen" in the elumico
+   mockup to count up the case stats to amplified values, then back. */
+(function() {
+  const triggers = document.querySelectorAll('[data-amp-trigger]');
+  const stats = document.querySelectorAll('.case__bigstat .v');
+  if (!triggers.length || !stats.length) return;
+  let amped = false;
+  let timer = null;
+
+  // Parse a value like "+47%", "2×", "4 yrs", "480×", "0" into { prefix, num, suffix }
+  function parse(s) {
+    const m = String(s).match(/^([^\d]*)(\d+(?:\.\d+)?)?(.*)$/);
+    if (!m) return { prefix: '', num: NaN, suffix: s };
+    return { prefix: m[1] || '', num: m[2] !== undefined ? parseFloat(m[2]) : NaN, suffix: m[3] || '' };
+  }
+  // easeOutQuart
+  function easeOut(t) { return 1 - Math.pow(1 - t, 4); }
+
+  function animateTo(el, fromVal, toVal, duration) {
+    const f = parse(fromVal);
+    const t = parse(toVal);
+    // If we can't parse either number, just swap text after a short delay
+    if (isNaN(f.num) || isNaN(t.num)) {
+      el.textContent = toVal;
+      return;
+    }
+    const start = performance.now();
+    const isInt = Number.isInteger(f.num) && Number.isInteger(t.num);
+    function step(now) {
+      const elapsed = Math.min((now - start) / duration, 1);
+      const k = easeOut(elapsed);
+      const v = f.num + (t.num - f.num) * k;
+      const display = isInt ? Math.round(v) : v.toFixed(1);
+      el.textContent = t.prefix + display + t.suffix;
+      if (elapsed < 1) requestAnimationFrame(step);
+      else el.textContent = toVal; // snap to exact end value
+    }
+    requestAnimationFrame(step);
+  }
+
+  function setAmp(on) {
+    stats.forEach(v => {
+      const card = v.closest('.case__bigstat');
+      const target = on ? v.dataset.amp : v.dataset.base;
+      const current = v.textContent.trim();
+      if (target === undefined) return;
+      animateTo(v, current, target, 1400);
+      if (on) card.classList.add('is-amped');
+      else card.classList.remove('is-amped');
+    });
+    amped = on;
+  }
+
+  triggers.forEach(t => {
+    t.addEventListener('click', (e) => {
+      e.preventDefault();
+      setAmp(!amped);
+      clearTimeout(timer);
+      if (!amped) return;
+      timer = setTimeout(() => setAmp(false), 5000);
+    });
+  });
+})();
+</script>
+
+<script>
+document.querySelectorAll('[data-stage]').forEach(stage => {
+  const wraps = Array.from(stage.querySelectorAll('.pill-wrap'));
+  if (!wraps.length) return;
+  let openIdx = -1;
+  wraps.forEach((w, i) => {
+    w.addEventListener('mouseenter', () => {
+      if (openIdx === i) return;
+      wraps.forEach((o, j) => o.classList.toggle('is-open', j === i));
+      stage.classList.add('has-open');
+      openIdx = i;
+    });
+    w.addEventListener('mouseleave', () => {
+      if (openIdx !== i) return;
+      w.classList.remove('is-open');
+      stage.classList.remove('has-open');
+      openIdx = -1;
+    });
+  });
+  let mouse = { x: -1e6, y: -1e6, active: false };
+  stage.addEventListener('mousemove', (e) => {
+    const r = stage.getBoundingClientRect();
+    mouse.x = e.clientX - r.left;
+    mouse.y = e.clientY - r.top;
+    mouse.active = true;
+    updateRepel();
+  });
+  stage.addEventListener('mouseleave', () => {
+    mouse.active = false;
+    wraps.forEach(w => { w.style.setProperty('--rx', '0px'); w.style.setProperty('--ry', '0px'); });
+  });
+  function updateRepel() {
+    wraps.forEach((w, i) => {
+      const r = w.getBoundingClientRect();
+      const sr = stage.getBoundingClientRect();
+      const cx = r.left + r.width/2 - sr.left;
+      const cy = r.top + r.height/2 - sr.top;
+      const dx = cx - mouse.x;
+      const dy = cy - mouse.y;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      const isOpen = i === openIdx;
+      const range = isOpen ? 460 : 280;
+      const dead = isOpen ? 0 : 60;
+      const maxForce = isOpen ? 26 : 28;
+      if (mouse.active && d < range && d > dead) {
+        const t = (d - dead) / (range - dead);
+        const force = (1 - t) * maxForce;
+        const sign = isOpen ? 0.85 : 1;
+        w.style.setProperty('--rx', (dx/d * force * sign) + 'px');
+        w.style.setProperty('--ry', (dy/d * force * sign) + 'px');
+      } else {
+        w.style.setProperty('--rx', '0px');
+        w.style.setProperty('--ry', '0px');
+      }
+    });
+  }
+  const canvas = stage.querySelector('canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  function resize() {
+    const r = stage.getBoundingClientRect();
+    const fullH = r.height + 28 * 16;
+    canvas.width = r.width * dpr; canvas.height = fullH * dpr;
+    canvas.style.width = r.width + 'px'; canvas.style.height = fullH + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  setTimeout(resize, 50);
+  window.addEventListener('resize', resize);
+  const RELATIONS = { 0: [{to: 1, w: 5}, {to: 2, w: 1}, {to: 3, w: 1}], 1: [{to: 2, w: 4}, {to: 3, w: 2}], 2: [{to: 3, w: 6}], 3: [] };
+  function pickTarget(from) {
+    const opts = RELATIONS[from]; if (!opts || !opts.length) return -1;
+    const total = opts.reduce((s,o)=>s+o.w,0);
+    let r = Math.random() * total;
+    for (const o of opts) { r -= o.w; if (r <= 0) return o.to; }
+    return opts[0].to;
+  }
+  function center(idx) {
+    const sr = stage.getBoundingClientRect();
+    const r = wraps[idx].getBoundingClientRect();
+    return { x: r.left + r.width/2 - sr.left, y: r.top + r.height/2 - sr.top, w: r.width, h: r.height };
+  }
+  const trains = [], rewards = [];
+  let lastSpawn = 0, lastReward = 0;
+  function spawnTrain() {
+    if (openIdx < 0) return;
+    if (openIdx === 3) {
+      const sources = [0, 1, 2];
+      const from = sources[Math.floor(Math.random() * sources.length)];
+      trains.push({ from, to: 3, t: 0, dur: 1200 + Math.random()*400, sign: Math.random()>0.5?1:-1, bend: 0.18 + Math.random()*0.16 });
+    } else {
+      const to = pickTarget(openIdx); if (to < 0) return;
+      trains.push({ from: openIdx, to, t: 0, dur: 1100 + Math.random()*500, sign: Math.random()>0.5?1:-1, bend: 0.20 + Math.random()*0.16 });
+    }
+  }
+  function spawnReward() {
+    if (openIdx !== 3) return;
+    const c = center(3);
+    const startX = c.x + (Math.random() - 0.5) * c.w * 1.4;
+    const startY = c.y + c.h * 0.5 - 4;
+    const kinds = ['$', '€', 'heart'];
+    rewards.push({ x: startX, y: startY, vx: (Math.random() - 0.5) * 2.2, vy: 0.18 + Math.random() * 0.22, swayAmp: 0.6 + Math.random() * 1.0, swayFreq: 0.0008 + Math.random() * 0.0006, swayPhase: Math.random() * Math.PI * 2, rotPhase: Math.random() * Math.PI * 2, rotSpeed: (Math.random() - 0.5) * 0.0018, rotAmp: 0.4 + Math.random() * 0.6, t: 0, dur: 6500 + Math.random() * 2000, kind: kinds[Math.floor(Math.random() * kinds.length)], size: 36 + Math.random() * 12 });
+  }
+  function bez(p0, p1, p2, p3, t) {
+    const o = 1 - t;
+    return { x: o*o*o*p0.x + 3*o*o*t*p1.x + 3*o*t*t*p2.x + t*t*t*p3.x, y: o*o*o*p0.y + 3*o*o*t*p1.y + 3*o*t*t*p2.y + t*t*t*p3.y };
+  }
+  function drawTrain(p, from, to) {
+    const eMax = 0.78;
+    const dx = to.x - from.x, dy = to.y - from.y;
+    const len = Math.sqrt(dx*dx + dy*dy) || 1;
+    const nx = -dy/len, ny = dx/len;
+    const bend = len * p.bend * p.sign;
+    const c1 = { x: from.x + dx*0.33 + nx*bend, y: from.y + dy*0.33 + ny*bend };
+    const c2 = { x: from.x + dx*0.66 + nx*bend, y: from.y + dy*0.66 + ny*bend };
+    let alpha;
+    if (p.t < 0.18) alpha = p.t/0.18;
+    else if (p.t < 0.55) alpha = 1;
+    else alpha = Math.max(0, 1 - (p.t - 0.55)/0.45);
+    for (let k = 0; k < 3; k++) {
+      const e = Math.min(Math.max(0, p.t - k * 0.05), eMax) / eMax;
+      const ease = e < 0.5 ? 2*e*e : 1 - Math.pow(-2*e + 2, 2)/2;
+      const pt = bez(from, c1, c2, to, ease);
+      const a = alpha * (1 - k * 0.25);
+      ctx.fillStyle = `rgba(136,203,30,${a * 0.18})`;
+      ctx.beginPath(); ctx.arc(pt.x, pt.y, 5, 0, Math.PI*2); ctx.fill();
+      ctx.fillStyle = `rgba(136,203,30,${a})`;
+      ctx.beginPath(); ctx.arc(pt.x, pt.y, 1.8 - k*0.3, 0, Math.PI*2); ctx.fill();
+    }
+  }
+  function drawHeart(cx, cy, size, alpha) {
+    ctx.save(); ctx.translate(cx, cy); ctx.scale(size / 24, size / 24);
+    ctx.fillStyle = `rgba(136,203,30,${alpha})`;
+    ctx.beginPath();
+    ctx.moveTo(0, 6);
+    ctx.bezierCurveTo(0, 2, -3, -2, -7, -2);
+    ctx.bezierCurveTo(-12, -2, -12, 4, -12, 4);
+    ctx.bezierCurveTo(-12, 8, -8, 12, 0, 18);
+    ctx.bezierCurveTo(8, 12, 12, 8, 12, 4);
+    ctx.bezierCurveTo(12, 4, 12, -2, 7, -2);
+    ctx.bezierCurveTo(3, -2, 0, 2, 0, 6);
+    ctx.closePath(); ctx.fill(); ctx.restore();
+  }
+  function drawReward(r, dt) {
+    r.swayPhase += r.swayFreq * dt; r.rotPhase += r.rotSpeed * dt;
+    const sway = Math.cos(r.swayPhase) * r.swayAmp;
+    r.x += r.vx * 0.35 + sway * 0.15; r.y += r.vy; r.vy *= 0.9985;
+    const u = r.t / r.dur;
+    let alpha;
+    if (u < 0.08) alpha = u / 0.08;
+    else if (u < 0.82) alpha = 1;
+    else alpha = Math.max(0, 1 - (u - 0.82) / 0.18);
+    const rotation = Math.sin(r.rotPhase) * r.rotAmp;
+    ctx.save(); ctx.translate(r.x, r.y); ctx.rotate(rotation);
+    if (r.kind === 'heart') {
+      drawHeart(0, 0, r.size, alpha);
+    } else {
+      ctx.font = `700 ${r.size}px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace`;
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillStyle = `rgba(136,203,30,${alpha * 0.95})`;
+      ctx.fillText(r.kind, 0, 0);
+    }
+    ctx.restore();
+  }
+  let prev = performance.now();
+  function tick(now) {
+    const dt = Math.min(now - prev, 60); prev = now;
+    ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
+    if (openIdx >= 0 && now - lastSpawn > 320) { spawnTrain(); lastSpawn = now; }
+    if (openIdx === 3 && now - lastReward > 360) { spawnReward(); lastReward = now; }
+    for (let i = trains.length - 1; i >= 0; i--) {
+      const p = trains[i]; p.t += dt / p.dur;
+      if (p.t >= 1) { trains.splice(i, 1); continue; }
+      drawTrain(p, center(p.from), center(p.to));
+    }
+    for (let i = rewards.length - 1; i >= 0; i--) {
+      const r = rewards[i]; r.t += dt;
+      if (r.t >= r.dur) { rewards.splice(i, 1); continue; }
+      drawReward(r, dt);
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+});
+</script>
+
+</body>
+</html>

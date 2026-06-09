@@ -1,0 +1,24 @@
+# Plausible self-hosted — only /api/event needs a proxy (script is baked as static /js/plausible.js)
+# Fixes the duplicate Access-Control-Allow-Origin CORS error from upstream nginx + Plausible app
+/api/event         https://plausible.webseed.me/api/event                                       200
+
+# Netlify clean URLs — strip .html so URLs match the sitemap
+/blog              /blog.html         200
+/blog/why-launch-isnt-the-finish-line  /blog-post.html  200
+/contact           /contact.html      200
+/impressum         /impressum.html    200
+/imprint           /impressum.html    200
+/privacy           /privacy.html      200
+/datenschutz       /privacy.html      200
+/terms             /terms.html        200
+
+# Trailing-slash variants
+/blog/             /blog.html         200
+/contact/          /contact.html      200
+/impressum/        /impressum.html    200
+/imprint/          /impressum.html    200
+/privacy/          /privacy.html      200
+/datenschutz/      /privacy.html      200
+/terms/            /terms.html        200
+
+# 404 fallback handled by Netlify automatically using 404.html

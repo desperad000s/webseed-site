@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Prerender internal links on hover → instant navigation on click -->
+<script type="speculationrules">{"prerender":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
+<link rel="preload" href="assets/fonts/geist-subset.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/bricolage-grotesque-subset.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="tokens.css?v=swap">
+<link rel="stylesheet" href="page404.css?v=swap">
+
+<title>404 · webseed</title>
+<meta name="description" content="Page not found.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/logo/favicon.svg">
+
+<!-- Plausible (self-hosted, proxied through Netlify → same-origin, no CORS, no extra connection) -->
+<script defer data-domain="webseed.me" data-api="/api/event" src="/js/plausible.js"></script>
+<script>
+window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)};
+document.addEventListener('click',function(e){var a=e.target.closest('[data-event]');if(!a)return;var p={};for(var k in a.dataset){if(k!=='event'&&k.indexOf('event')===0)p[k.slice(5).toLowerCase()]=a.dataset[k]}plausible(a.dataset.event,Object.keys(p).length?{props:p}:undefined)},true);
+</script>
+<!-- GA4 + Cookie-Script lazy-loaded on first interaction or idle (mobile Perf optimization — keeps main thread clear during paint) -->
+<script>
+(function(){var L=false;function load(){if(L)return;L=true;
+var c=document.createElement('script');c.async=true;c.type='text/javascript';c.charset='UTF-8';c.src='https://cdn.cookie-script.com/s/d5e08260c92e5cd7e40840f57d44a79f.js';document.head.appendChild(c);
+var g=document.createElement('script');g.async=true;g.src='https://www.googletagmanager.com/gtag/js?id=G-66NNRJC733';document.head.appendChild(g);
+window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','G-66NNRJC733');}
+['scroll','click','keydown','mousemove','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true,capture:true})});
+setTimeout(load,8000)
+})();
+</script>
+
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <main><div class="stage">
+    <p class="code"><span class="bar"></span>404 · page not found</p>
+    <h1>This page <em>got lost</em> on its way to launch.</h1>
+    <p>The link you followed might be old, or the page might have moved. Head back to the homepage or browse the studio notes.</p>
+    <div class="actions">
+      <a class="btn-primary" href="/">Back to homepage
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.175 9H0V7H12.175L6.575 1.4L8 0L16 8L8 16L6.575 14.6L12.175 9Z"/></svg>
+      </a>
+      <a class="link-ghost" href="/blog">Read the blog
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.175 9H0V7H12.175L6.575 1.4L8 0L16 8L8 16L6.575 14.6L12.175 9Z"/></svg>
+      </a>
+    </div>
+  </div></main>
+</body>
+</html>
