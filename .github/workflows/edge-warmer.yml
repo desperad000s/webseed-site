@@ -1,0 +1,23 @@
+# Pings webseed.me every 15 min from GitHub Actions runners (US-based).
+# Keeps the CF edge cache warm so PSI tests (which run from Iowa, USA)
+# don't hit cold edges. Cheap — ~10 seconds of runner time per execution.
+
+name: Edge cache warmer
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+jobs:
+  warm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Warm primary pages
+        run: |
+          for path in / /blog /contact /impressum /privacy /terms /assets/fonts/geist-subset.woff2 /assets/fonts/bricolage-grotesque-subset.woff2; do
+            status=$(curl -s -o /dev/null -w "%{http_code}" \
+              -A "edge-warmer/1.0 (+https://webseed.me)" \
+              "https://webseed.me$path")
+            echo "  $path → $status"
+          done
