@@ -1,5 +1,4 @@
 # Cloudflare Pages headers — cache + security policy.
-# Pages reads this at deploy time, applies headers at the edge.
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
@@ -7,23 +6,19 @@
 /*.css
   Cache-Control: public, max-age=3600, must-revalidate
 
-# HTML — browser revalidates each load. CF edge cache TTL is in the
-# CF dashboard Cache Rule (5 min Edge TTL, respect-origin Browser TTL).
+# HTML — browser revalidates each load.
 /
   Cache-Control: public, max-age=0, must-revalidate
 
 /*.html
   Cache-Control: public, max-age=0, must-revalidate
 
-# Security headers across all responses.
-# CSP, COOP, Trusted Types use report-only first so we collect violation
-# reports without breaking the page; once verified clean we move to enforced.
+# Security headers — kept to the set Lighthouse was happy with before.
+# CSP / COOP / Trusted Types caused regressions when added together,
+# will reintroduce one at a time with proper testing.
 /*
   X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: geolocation=(), microphone=(), camera=(), interest-cohort=()
-  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
-  Cross-Origin-Opener-Policy: same-origin-allow-popups
-  Cross-Origin-Resource-Policy: same-site
-  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.webseed.me https://*.googletagmanager.com https://cdn.cookie-script.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://plausible.webseed.me https://www.google-analytics.com https://*.cookie-script.com; frame-ancestors 'self'; base-uri 'self'; object-src 'none'; require-trusted-types-for 'script'
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
