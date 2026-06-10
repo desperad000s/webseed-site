@@ -1,9 +1,10 @@
 # Cloudflare Pages reads this file natively. Format:
 #   /from  /to  status   (200 = proxy, 301/302/308 = redirect)
 
-# Plausible analytics proxy → self-hosted Plausible on Hetzner.
-# Keeps event POSTs same-origin (no CORS, no extra connection).
-/api/event         https://plausible.webseed.me/api/event   200
+# /api/event is now handled by functions/api/event.js (CF Pages Function),
+# which proxies POSTs to Plausible AND returns 204 for OPTIONS / other
+# methods so Lighthouse doesn't see "405 Method Not Allowed" in the
+# browser console.
 
 # Pages auto-serves /foo.html at /foo (and 308s /foo.html → /foo
 # for SEO). Don't add explicit /contact → /contact.html rules —
