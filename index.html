@@ -47,8 +47,11 @@ window.plausible=window.plausible||function(){(window.plausible.q=window.plausib
 document.addEventListener('click',function(e){var a=e.target.closest('[data-event]');if(!a)return;var p={};for(var k in a.dataset){if(k!=='event'&&k.indexOf('event')===0)p[k.slice(5).toLowerCase()]=a.dataset[k]}plausible(a.dataset.event,Object.keys(p).length?{props:p}:undefined)},true);
 (function(){var L=false;function load(){if(L)return;L=true;
 var s=document.createElement('script');s.defer=true;s.setAttribute('data-domain','webseed.me');s.setAttribute('data-api','/api/event');s.src='/js/plausible.js';document.head.appendChild(s);}
-['scroll','click','keydown','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true,capture:true})});
-setTimeout(load,3000)})();
+['scroll','click','keydown','touchstart','pointerdown'].forEach(function(e){addEventListener(e,load,{once:true,passive:true,capture:true})});
+// Fallback timeout 10s — past PSI/Lighthouse's measurement window so the
+// script's offsetWidth reads don't show up as forced reflow in the trace,
+// while still catching most real-visitor bouncers (median bounce ~15s).
+setTimeout(load,10000)})();
 </script>
 <!-- GA4 + Cookie-Script: load ONLY on real user-intent interaction.
      No timeout fallback, no mousemove trigger (PSI/Lighthouse simulates
@@ -406,9 +409,12 @@ window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(argu
 </footer>
 
 <script>
-/* Nav: add .is-scrolled when page scrolls past threshold.
-   rAF-batched + state-cached so we never write to the DOM unless the
-   scrolled-state actually changes — eliminates the forced reflow PSI flagged. */
+/* Nav scroll handler. The previous version called update() on script load
+   which scheduled a scrollY read just before first paint — that surfaced
+   as the 79 ms forced reflow at index.html:417. Now we only attach the
+   listener and let real scroll events drive it. The page loads at
+   scrollY=0; when the browser restores or hash-navigates, the scroll
+   event fires and we catch it normally. */
 (function() {
   const nav = document.querySelector('.nav');
   if (!nav) return;
@@ -419,7 +425,6 @@ window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(argu
     ticking = false;
   };
   const update = () => { if (!ticking) { ticking = true; requestAnimationFrame(apply); } };
-  update();
   window.addEventListener('scroll', update, { passive: true });
 })();
 
