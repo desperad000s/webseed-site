@@ -556,15 +556,21 @@ document.querySelectorAll('[data-stage]').forEach(stage => {
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  let resizeRaf = 0;
   function resize() {
-    const r = stage.getBoundingClientRect();
-    const fullH = r.height + 28 * 16;
-    canvas.width = r.width * dpr; canvas.height = fullH * dpr;
-    canvas.style.width = r.width + 'px'; canvas.style.height = fullH + 'px';
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (resizeRaf) return;
+    resizeRaf = requestAnimationFrame(() => {
+      const r = stage.getBoundingClientRect();
+      const fullH = r.height + 28 * 16;
+      canvas.width = r.width * dpr; canvas.height = fullH * dpr;
+      canvas.style.width = r.width + 'px'; canvas.style.height = fullH + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      resizeRaf = 0;
+    });
   }
-  setTimeout(resize, 50);
-  window.addEventListener('resize', resize);
+  // Defer initial sizing to idle so it doesn't fight FCP/LCP layout work
+  (window.requestIdleCallback || ((cb) => setTimeout(cb, 200)))(resize);
+  window.addEventListener('resize', resize, { passive: true });
   const RELATIONS = { 0: [{to: 1, w: 5}, {to: 2, w: 1}, {to: 3, w: 1}], 1: [{to: 2, w: 4}, {to: 3, w: 2}], 2: [{to: 3, w: 6}], 3: [] };
   function pickTarget(from) {
     const opts = RELATIONS[from]; if (!opts || !opts.length) return -1;
