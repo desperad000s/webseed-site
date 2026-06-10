@@ -1,0 +1,25 @@
+# Cloudflare Pages headers — mirrors the cache + security rules
+# we previously had in netlify.toml. CF Pages reads this file at
+# deploy time and applies headers at the edge.
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.css
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# HTML — browser revalidates, CF edge cache TTL is set via the
+# Cache Rule in the CF dashboard (not in this file).
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Security headers across all responses
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
