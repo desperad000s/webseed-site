@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smoke 2026-06-19T15-30-06</title>
+<meta name="description" content="sandbox smoke for publish-to-git">
+<link rel="canonical" href="https://webseed.me/smoke-2026-06-19t15-30-06">
+<meta name="generator" content="webseed-studio">
+
+<meta property="og:title" content="Smoke 2026-06-19T15-30-06">
+<meta property="og:type" content="website">
+<meta property="og:description" content="sandbox smoke for publish-to-git">
+<meta property="og:url" content="https://webseed.me/smoke-2026-06-19t15-30-06">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Smoke 2026-06-19T15-30-06">
+<meta name="twitter:description" content="sandbox smoke for publish-to-git">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Smoke 2026-06-19T15-30-06","headline":"Smoke 2026-06-19T15-30-06","description":"sandbox smoke for publish-to-git","url":"https://webseed.me/smoke-2026-06-19t15-30-06"}</script>
+
+
+
+
+
+</head>
+<body>
+
+
+<section><h1>Smoke publish-to-git</h1><p>generated 2026-06-19T15-30-06</p></section>
+
+
+<style id="ws-interact">
+  [data-ws-trigger] { transition: opacity .35s ease-out, transform .35s ease-out; }
+  [data-ws-trigger][data-ws-action="fade"]:not([data-ws-active])         { opacity: 0; }
+  [data-ws-trigger][data-ws-action="slide-up"]:not([data-ws-active])     { opacity: 0; transform: translateY(20px); }
+  [data-ws-trigger][data-ws-action="slide-down"]:not([data-ws-active])   { opacity: 0; transform: translateY(-20px); }
+  [data-ws-trigger][data-ws-action="slide-left"]:not([data-ws-active])   { opacity: 0; transform: translateX(20px); }
+  [data-ws-trigger][data-ws-action="slide-right"]:not([data-ws-active])  { opacity: 0; transform: translateX(-20px); }
+  [data-ws-trigger][data-ws-action="scale"]:not([data-ws-active])        { opacity: 0; transform: scale(0.95); }
+  @media (prefers-reduced-motion: reduce) {
+    [data-ws-trigger] { transition: none !important; opacity: 1 !important; transform: none !important; }
+  }
+</style>
+<script id="ws-interact-js">
+(function(){
+  function activate(el){ el.setAttribute('data-ws-active',''); }
+  function deactivate(el){ el.removeAttribute('data-ws-active'); }
+  var els = document.querySelectorAll('[data-ws-trigger]');
+  els.forEach(function(el){
+    var trigger = el.getAttribute('data-ws-trigger');
+    var action  = el.getAttribute('data-ws-action') || 'fade';
+    var cls     = el.getAttribute('data-ws-class') || '';
+    if(trigger==='load'){
+      requestAnimationFrame(function(){ activate(el); });
+    } else if(trigger==='appear'){
+      if(typeof IntersectionObserver==='undefined'){ activate(el); return; }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){ activate(el); io.unobserve(el); }
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+      io.observe(el);
+    } else if(trigger==='hover'){
+      activate(el); // hover defaults to visible, swaps OFF on enter (lets user invert via class trick)
+      el.addEventListener('mouseenter', function(){ if(action==='toggle-class' && cls){ el.classList.toggle(cls); } else { deactivate(el); } });
+      el.addEventListener('mouseleave', function(){ if(action==='toggle-class' && cls){ el.classList.toggle(cls); } else { activate(el); } });
+    } else if(trigger==='click'){
+      activate(el);
+      el.addEventListener('click', function(){
+        if(action==='toggle-class' && cls){ el.classList.toggle(cls); }
+        else { if(el.hasAttribute('data-ws-active')) deactivate(el); else activate(el); }
+      });
+    }
+  });
+})();
+</script>
+
+<script>
+(function(){
+  window.plausible = window.plausible || function(){ (window.plausible.q = window.plausible.q || []).push(arguments); };
+  window.plausible("page:smoke-2026-06-19t15-30-06");
+})();
+</script>
+</body>
+</html>
