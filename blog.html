@@ -39,15 +39,71 @@ document.addEventListener('click',function(e){var a=e.target.closest('[data-even
 </script>
 <!-- GA4 + Cookie-Script lazy-loaded on first interaction or idle (mobile Perf optimization — keeps main thread clear during paint) -->
 <script>
-(function(){var L=false;function load(){if(L)return;L=true;
-var c=document.createElement('script');c.async=true;c.type='text/javascript';c.charset='UTF-8';c.src='https://cdn.cookie-script.com/s/d5e08260c92e5cd7e40840f57d44a79f.js';document.head.appendChild(c);
-var g=document.createElement('script');g.async=true;g.src='https://www.googletagmanager.com/gtag/js?id=G-66NNRJC733';document.head.appendChild(g);
-window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','G-66NNRJC733');}
-['scroll','click','keydown','mousemove','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true,capture:true})});
-setTimeout(load,8000)
+/* Einwilligung zuerst, Messung danach.
+
+   Vorher luden das Banner und Google Analytics gemeinsam beim ersten
+   Scrollen. Gemessen am 30.08.2026: nach einer einzigen Radbewegung ging ein
+   Treffer an region1.google-analytics.com raus, bevor irgendjemand das Banner
+   angefasst hatte. Fuer eine Agentur, die DSGVO-Pruefungen verkauft, ist das
+   der Befund, den man selbst nicht haben darf.
+
+   Jetzt zweistufig. Stufe eins laedt nur das Banner, weiter erst beim ersten
+   Anfassen der Seite: das ist der Grund, warum PageSpeed hier 100 statt 93
+   misst, und daran aendert sich nichts, weil ein Messlauf nicht scrollt.
+   Stufe zwei laedt Google erst, wenn die Kategorie "performance" wirklich
+   zugestimmt ist.
+
+   Drei Wege fuehren zu Stufe zwei, und alle drei sind noetig:
+     - ein Besucher, der frueher schon zugestimmt hat (currentState beim Laden)
+     - ein Besucher, der jetzt zustimmt (CookieScriptAccept / AcceptAll)
+     - sonst nie
+
+   Geprueft mit dem echten Banner: currentState() liefert vor der Zustimmung
+   {categories: []} und danach {action:"accept", categories:["performance",
+   "targeting","functionality"]}. */
+(function () {
+  var bannerGeladen = false, googleGeladen = false;
+
+  function banner() {
+    if (bannerGeladen) return; bannerGeladen = true;
+    var c = document.createElement('script');
+    c.async = true; c.type = 'text/javascript'; c.charset = 'UTF-8';
+    c.src = 'https://cdn.cookie-script.com/s/d5e08260c92e5cd7e40840f57d44a79f.js';
+    document.head.appendChild(c);
+  }
+
+  function darfMessen() {
+    try {
+      var z = window.CookieScript.instance.currentState();
+      return !!(z && z.categories && z.categories.indexOf('performance') !== -1);
+    } catch (e) { return false; }
+  }
+
+  function google() {
+    if (googleGeladen || !darfMessen()) return; googleGeladen = true;
+    var g = document.createElement('script');
+    g.async = true; g.src = 'https://www.googletagmanager.com/gtag/js?id=G-66NNRJC733';
+    document.head.appendChild(g);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag('js', new Date()); gtag('config', 'G-66NNRJC733');
+  }
+
+  ['CookieScriptLoaded', 'CookieScriptAccept', 'CookieScriptAcceptAll']
+    .forEach(function (e) { addEventListener(e, google); });
+
+  ['scroll', 'click', 'keydown', 'mousemove', 'touchstart'].forEach(function (e) {
+    addEventListener(e, banner, { once: true, passive: true, capture: true });
+  });
+  setTimeout(banner, 8000);
 })();
 </script>
 
+<link rel="stylesheet" href="/studio.css">
+<!-- studio:head -->
+<!-- WSM20-HEAD -->
+<meta name="ws-m20" content="head-ok">
+<!-- /studio:head -->
 </head>
 <body>
 
@@ -81,7 +137,7 @@ setTimeout(load,8000)
       <h1 class="h-mega">Notes from the studio. <em>Sharpened</em> on real work.</h1>
       <p class="lede">Essays, opinions, and post-mortems from running the four-phase loop. No SEO bait, no top-ten lists. Only the things we keep telling new clients on the first call — written down, so you can read them before that call.</p>
       <div class="hero__meta">
-        <span>12 essays</span>
+        <span>3 essays</span>
         <span>new posts monthly</span>
         <span>written by Hendrik</span>
       </div>
@@ -102,109 +158,40 @@ setTimeout(load,8000)
     </div>
 
     <!-- Featured -->
-    <a class="featured" href="blog-post.html">
+    <a class="featured" href="blog/aeo-what-agency-clients-need-to-know-now.html">
       <div class="featured__cover">
-        <span class="featured__cover-label">featured · jan 2026</span>
+        <span class="featured__cover-label">featured · aug 2026</span>
       </div>
       <div class="featured__copy">
-        <p class="featured__meta">essay · 8 min read · growth · retainer</p>
-        <h2 class="featured__title">Why launch isn't the finish line.</h2>
-        <p class="featured__excerpt">Most agencies treat the site like a deliverable and disappear at handover. The retainer is the part where numbers actually compound — and the only part most agencies skip. Here's what we do differently, and what compounded for elumico over four years.</p>
+        <p class="featured__meta">essay · 8 min read · growth · visibility</p>
+        <h2 class="featured__title">I asked ChatGPT to recommend an agency. We weren&rsquo;t on the list.</h2>
+        <p class="featured__excerpt">An experiment I had been putting off: open ChatGPT and type what somebody looking for us would actually type. What came back, why we were not in it, and what the answer engines are reading instead of your website.</p>
         <span class="featured__read">Read the essay <svg><use href="#i-arrow"/></svg></span>
       </div>
     </a>
 
     <!-- Posts grid -->
     <div class="posts">
-      <a class="post" href="blog-post.html" style="--accent: radial-gradient(ellipse 60% 60% at 30% 70%, rgba(136,203,30,0.18), transparent 70%);">
+      <a class="post" href="blog/pillar-the-solo-ai-agency.html" style="--accent: radial-gradient(ellipse 60% 60% at 30% 70%, rgba(136,203,30,0.18), transparent 70%);">
         <div class="post__cover">
           <span class="post__cover-tag">strategy</span>
         </div>
-        <p class="post__meta">essay · 11 min · feb 2026</p>
-        <h3 class="post__title">What a strategy doc actually contains.</h3>
-        <p class="post__excerpt">Most strategy decks are 40-slide vibe docs. Ours is one page. Positioning, audience, KPI targets, channel mix, conversion architecture. Here's the structure, with redacted examples.</p>
+        <p class="post__meta">essay · 8 min · aug 2026</p>
+        <h3 class="post__title">The solo AI agency: strategy, build and growth from one desk.</h3>
+        <p class="post__excerpt">In one week of June 2026 three queries spiked together on Google Trends: YouTube agency, solo agency, AI agency. That is not three trends, it is one, and it says something about what clients now expect a small shop to be able to do.</p>
         <span class="post__read">Read <svg><use href="#i-arrow"/></svg></span>
       </a>
 
-      <a class="post" href="blog-post.html" style="--accent: radial-gradient(ellipse 60% 60% at 70% 30%, rgba(136,203,30,0.14), transparent 70%);">
-        <div class="post__cover">
-          <span class="post__cover-tag">build</span>
-        </div>
-        <p class="post__meta">essay · 6 min · mar 2026</p>
-        <h3 class="post__title">Webflow or Next.js — which and why.</h3>
-        <p class="post__excerpt">Two tools, two right-fits. Webflow when content frequency and editorial control matter. Next.js when the site is the product. The rule of thumb, in one paragraph.</p>
-        <span class="post__read">Read <svg><use href="#i-arrow"/></svg></span>
-      </a>
-
-      <a class="post" href="blog-post.html" style="--accent: radial-gradient(ellipse 70% 60% at 50% 80%, rgba(136,203,30,0.20), transparent 70%);">
-        <div class="post__cover">
-          <span class="post__cover-tag">retainer</span>
-        </div>
-        <p class="post__meta">case study · 14 min · apr 2026</p>
-        <h3 class="post__title">elumico, year four: what compounded.</h3>
-        <p class="post__excerpt">Four years on the retainer. 2× bookings in Q1 after launch, +47% organic traffic in year two. Here's exactly what we ran, what failed, and what kept compounding.</p>
-        <span class="post__read">Read <svg><use href="#i-arrow"/></svg></span>
-      </a>
-
-      <a class="post" href="blog-post.html" style="--accent: radial-gradient(ellipse 60% 60% at 20% 30%, rgba(136,203,30,0.16), transparent 70%);">
-        <div class="post__cover">
-          <span class="post__cover-tag">growth</span>
-        </div>
-        <p class="post__meta">essay · 7 min · may 2026</p>
-        <h3 class="post__title">A/B testing without a research team.</h3>
-        <p class="post__excerpt">You don't need 100k visitors a month to test. Here's the lean methodology we use on accounts with 4k monthly visits — and the three tests that always run first.</p>
-        <span class="post__read">Read <svg><use href="#i-arrow"/></svg></span>
-      </a>
-
-      <a class="post" href="blog-post.html" style="--accent: radial-gradient(ellipse 60% 60% at 80% 60%, rgba(136,203,30,0.12), transparent 70%);">
-        <div class="post__cover">
-          <span class="post__cover-tag">build</span>
-        </div>
-        <p class="post__meta">essay · 9 min · jun 2026</p>
-        <h3 class="post__title">Analytics before launch, not after.</h3>
-        <p class="post__excerpt">Most teams wire analytics weeks after the site is live. That's how you lose your day-one data forever. Here's the lightweight setup we ship before the launch checklist starts.</p>
-        <span class="post__read">Read <svg><use href="#i-arrow"/></svg></span>
-      </a>
-
-      <a class="post" href="blog-post.html" style="--accent: radial-gradient(ellipse 70% 60% at 40% 70%, rgba(136,203,30,0.18), transparent 70%);">
-        <div class="post__cover">
-          <span class="post__cover-tag">strategy</span>
-        </div>
-        <p class="post__meta">essay · 12 min · jul 2026</p>
-        <h3 class="post__title">The first retainer we ended early.</h3>
-        <p class="post__excerpt">It wasn't a fit. We saw it in month two and pulled the cord in month four. What we got wrong in qualifying, what the exit looked like, and how it sharpened the qualifying questions.</p>
-        <span class="post__read">Read <svg><use href="#i-arrow"/></svg></span>
-      </a>
-
-      <a class="post" href="blog-post.html" style="--accent: radial-gradient(ellipse 60% 60% at 60% 40%, rgba(136,203,30,0.14), transparent 70%);">
+      <a class="post" href="blog/youtube-in-ai-age.html" style="--accent: radial-gradient(ellipse 60% 60% at 70% 30%, rgba(136,203,30,0.14), transparent 70%);">
         <div class="post__cover">
           <span class="post__cover-tag">growth</span>
         </div>
         <p class="post__meta">essay · 8 min · aug 2026</p>
-        <h3 class="post__title">Why we don't run paid ads (for most clients).</h3>
-        <p class="post__excerpt">Ads work, but most B2B clients aren't ready for them. Here's the diagnostic we run before recommending paid traffic — and why content/SEO usually wins on payback period.</p>
+        <h3 class="post__title">Why YouTube matters more in the AI age.</h3>
+        <p class="post__excerpt">A potential client asked whether we were on YouTube before he asked anything about the portfolio. He had already read the website. Video is where the trust gets built now, and the answer engines quote it.</p>
         <span class="post__read">Read <svg><use href="#i-arrow"/></svg></span>
       </a>
-
-      <a class="post" href="blog-post.html" style="--accent: radial-gradient(ellipse 60% 60% at 35% 50%, rgba(136,203,30,0.16), transparent 70%);">
-        <div class="post__cover">
-          <span class="post__cover-tag">case</span>
-        </div>
-        <p class="post__meta">case study · 6 min · sep 2026</p>
-        <h3 class="post__title">Mary: identity, then site, then channel.</h3>
-        <p class="post__excerpt">A B2C wellness brand built in 12 weeks. The identity system shipped before the site, the site shipped before paid acquisition. Why the order matters.</p>
-        <span class="post__read">Read <svg><use href="#i-arrow"/></svg></span>
-      </a>
-
-      <a class="post" href="blog-post.html" style="--accent: radial-gradient(ellipse 60% 60% at 50% 40%, rgba(136,203,30,0.18), transparent 70%);">
-        <div class="post__cover">
-          <span class="post__cover-tag">retainer</span>
-        </div>
-        <p class="post__meta">essay · 5 min · oct 2026</p>
-        <h3 class="post__title">Quarterly KPI reviews that actually move things.</h3>
-        <p class="post__excerpt">Most reviews are status meetings. Ours is one page, three numbers, and a hypothesis for what we'll test next. Template included.</p>
-        <span class="post__read">Read <svg><use href="#i-arrow"/></svg></span>
-      </a>
+    </div>
     </div>
   </div>
 </section>
@@ -280,5 +267,9 @@ setTimeout(load,8000)
   }));
 </script>
 
+<!-- studio:body -->
+<!-- WSM20-BODY -->
+<div id="ws-m20-body"></div>
+<!-- /studio:body -->
 </body>
 </html>

@@ -39,15 +39,71 @@ document.addEventListener('click',function(e){var a=e.target.closest('[data-even
 </script>
 <!-- GA4 + Cookie-Script lazy-loaded on first interaction or idle (mobile Perf optimization — keeps main thread clear during paint) -->
 <script>
-(function(){var L=false;function load(){if(L)return;L=true;
-var c=document.createElement('script');c.async=true;c.type='text/javascript';c.charset='UTF-8';c.src='https://cdn.cookie-script.com/s/d5e08260c92e5cd7e40840f57d44a79f.js';document.head.appendChild(c);
-var g=document.createElement('script');g.async=true;g.src='https://www.googletagmanager.com/gtag/js?id=G-66NNRJC733';document.head.appendChild(g);
-window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','G-66NNRJC733');}
-['scroll','click','keydown','mousemove','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true,capture:true})});
-setTimeout(load,8000)
+/* Einwilligung zuerst, Messung danach.
+
+   Vorher luden das Banner und Google Analytics gemeinsam beim ersten
+   Scrollen. Gemessen am 30.08.2026: nach einer einzigen Radbewegung ging ein
+   Treffer an region1.google-analytics.com raus, bevor irgendjemand das Banner
+   angefasst hatte. Fuer eine Agentur, die DSGVO-Pruefungen verkauft, ist das
+   der Befund, den man selbst nicht haben darf.
+
+   Jetzt zweistufig. Stufe eins laedt nur das Banner, weiter erst beim ersten
+   Anfassen der Seite: das ist der Grund, warum PageSpeed hier 100 statt 93
+   misst, und daran aendert sich nichts, weil ein Messlauf nicht scrollt.
+   Stufe zwei laedt Google erst, wenn die Kategorie "performance" wirklich
+   zugestimmt ist.
+
+   Drei Wege fuehren zu Stufe zwei, und alle drei sind noetig:
+     - ein Besucher, der frueher schon zugestimmt hat (currentState beim Laden)
+     - ein Besucher, der jetzt zustimmt (CookieScriptAccept / AcceptAll)
+     - sonst nie
+
+   Geprueft mit dem echten Banner: currentState() liefert vor der Zustimmung
+   {categories: []} und danach {action:"accept", categories:["performance",
+   "targeting","functionality"]}. */
+(function () {
+  var bannerGeladen = false, googleGeladen = false;
+
+  function banner() {
+    if (bannerGeladen) return; bannerGeladen = true;
+    var c = document.createElement('script');
+    c.async = true; c.type = 'text/javascript'; c.charset = 'UTF-8';
+    c.src = 'https://cdn.cookie-script.com/s/d5e08260c92e5cd7e40840f57d44a79f.js';
+    document.head.appendChild(c);
+  }
+
+  function darfMessen() {
+    try {
+      var z = window.CookieScript.instance.currentState();
+      return !!(z && z.categories && z.categories.indexOf('performance') !== -1);
+    } catch (e) { return false; }
+  }
+
+  function google() {
+    if (googleGeladen || !darfMessen()) return; googleGeladen = true;
+    var g = document.createElement('script');
+    g.async = true; g.src = 'https://www.googletagmanager.com/gtag/js?id=G-66NNRJC733';
+    document.head.appendChild(g);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag('js', new Date()); gtag('config', 'G-66NNRJC733');
+  }
+
+  ['CookieScriptLoaded', 'CookieScriptAccept', 'CookieScriptAcceptAll']
+    .forEach(function (e) { addEventListener(e, google); });
+
+  ['scroll', 'click', 'keydown', 'mousemove', 'touchstart'].forEach(function (e) {
+    addEventListener(e, banner, { once: true, passive: true, capture: true });
+  });
+  setTimeout(banner, 8000);
 })();
 </script>
 
+<link rel="stylesheet" href="/studio.css">
+<!-- studio:head -->
+<!-- WSM20-HEAD -->
+<meta name="ws-m20" content="head-ok">
+<!-- /studio:head -->
 </head>
 <body>
 
@@ -314,5 +370,9 @@ setTimeout(load,8000)
   })();
 </script>
 
+<!-- studio:body -->
+<!-- WSM20-BODY -->
+<div id="ws-m20-body"></div>
+<!-- /studio:body -->
 </body>
 </html>
